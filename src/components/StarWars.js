@@ -1,14 +1,14 @@
 import './StarWars.css';
 import { useState } from 'react';
 import DisplayStarWars from './DisplayStarWars.js';
-import { useDispatch } from 'react-redux'
-import { addToList } from '../actions';
+// import { useDispatch } from 'react-redux'
+// import { addToList } from '../actions';
 
-function StarWars({ index }) {
+function StarWars() {
   const [ number, setNumber] = useState('')
   const [data, setData ] = useState(null)
-  // const [item, savedData ] = useState([])
-  const dispatcher = useDispatch()
+  const [item, savedData ] = useState([])
+  // const dispatcher = useDispatch()
 
   async function loadData() {
     try {
@@ -37,7 +37,7 @@ function StarWars({ index }) {
 
   return (
     <div className="StarWars">
-      {data ? <DisplayStarWars { ...data } /> : null}
+
       <form onSubmit={e => {
         e.preventDefault()
         loadData()
@@ -50,24 +50,24 @@ function StarWars({ index }) {
         <button type="submit">Search</button>
         <button 
           type="button"
-          onClick={() => dispatcher(addToList(index))}
-          // onClick={() => savedData( item => [...item, data])}
+          // onClick={() => dispatcher(addToList(index))}
+          onClick={() => savedData( item => [...item, data])}
         >Save</button>
-
-      {/* <div className="savedCharacters">
+      {data ? <DisplayStarWars { ...data } /> : null}
+      <div className="savedCharacters">
         { item.map( (item, i) => {
           return (
             <div className="savedCharacter">
-                <h1>Name:{item.name}</h1> 
-                <h1>Height:{item.height}</h1>
-                <h1>Mass:{item.mass}</h1>
-                <h1>Hair Color:{item.hair_color}</h1>
-                <h1>Eye Color:{item.eye_color}</h1>
-                <h1>Homeworld:{item.homeworld}</h1>
+                <h1>Name:  {item.name}</h1>
+                <h1>Height:  {item.height}</h1>
+                <h1>Mass:  {item.mass}</h1>
+                <h1>Hair Color:  {item.hair_color}</h1>
+                <h1>Eye Color:  {item.eye_color}</h1>
+                <h1>Homeworld:  {item.homeworld}</h1>
             </div>
           )
         })}
-      </div> */}
+      </div>
       </form>
     </div>
   )

@@ -3,20 +3,22 @@
 }
 
 input {
-  padding: 18px;
-  font-size: 20px;
+  padding: 28px;
   width: 70px;
   height: 10px;
   margin: 10px;
+  font-size: 20px;
+  height: 19px;
 }
 
 button {
-  padding: 10px;
-  font-size: 20px;
+  padding: 26px;
   margin: 10px;
+  font-size: 20px;
 }
 
 .savedCharacter {
   border: solid black 2px;
   margin: 20px;
 }
+
