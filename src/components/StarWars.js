@@ -1,14 +1,14 @@
 import './StarWars.css';
 import { useState } from 'react';
 import DisplayStarWars from './DisplayStarWars.js';
-// import { useDispatch } from 'react-redux'
-// import { addToList } from '../actions';
+import { useDispatch } from 'react-redux'
+import { addToList } from '../actions';
 
-function StarWars() {
+function StarWars({ index }) {
   const [ number, setNumber] = useState('')
   const [data, setData ] = useState(null)
-  const [item, savedData ] = useState([])
-  // const dispatcher = useDispatch()
+  // const [item, savedData ] = useState([])
+  const dispatcher = useDispatch()
 
   async function loadData() {
     try {
@@ -38,7 +38,6 @@ function StarWars() {
   return (
     <div className="StarWars">
       {data ? <DisplayStarWars { ...data } /> : null}
-      {/* <HomeWorld data={data ? data : null } homeworld={world} /> */}
       <form onSubmit={e => {
         e.preventDefault()
         loadData()
@@ -51,11 +50,11 @@ function StarWars() {
         <button type="submit">Search</button>
         <button 
           type="button"
-          // onClick={() => dispatcher(addToList(data[]))}
-          onClick={() => savedData( item => [...item, data])}
+          onClick={() => dispatcher(addToList(index))}
+          // onClick={() => savedData( item => [...item, data])}
         >Save</button>
 
-      <div className="savedCharacters">
+      {/* <div className="savedCharacters">
         { item.map( (item, i) => {
           return (
             <div className="savedCharacter">
@@ -68,8 +67,7 @@ function StarWars() {
             </div>
           )
         })}
-      </div>
-      
+      </div> */}
       </form>
     </div>
   )
