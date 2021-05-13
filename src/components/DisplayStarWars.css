@@ -1,0 +1,16 @@
+.DisplayStarWars {
+  border: black solid .5px;
+  padding: 10px;
+  margin: 30px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.allSavedCharacters {
+  border: black solid 2px;
+  padding: 10px;
+  margin: 30px;
+}
